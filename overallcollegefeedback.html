@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>overall college feedback</title>
+    <link rel="stylesheet" type="text/css" href="css/ocfstyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Flamenco" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+</head>
+
+<body>
+    <header>
+    <h1 style="width: fit-content;">Overall College Feedback</h1>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <canvas id="myChart" class="mychart" width="10" height="10"></canvas>
+    <script>
+
+        var firebaseConfig = {
+            apiKey: "AIzaSyCtoy51rQGpd00Iys-oZn0QcHpZBqWypzE",
+            authDomain: "majorproject-1c258.firebaseapp.com",
+            databaseURL: "https://majorproject-1c258.firebaseio.com",
+            projectId: "majorproject-1c258",
+            storageBucket: "majorproject-1c258.appspot.com",
+            messagingSenderId: "1063858542021",
+            appId: "1:1063858542021:web:1b927cf5f809598ab827ac",
+            measurementId: "G-LMRQGTLPX6"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        var clg = 0;
+        var ctn = 0;
+        var cur = 0;
+        var lib = 0;
+        const fval=[];
+        const flabel=['Canteen','College','Curricular Activities','Library'];
+    
+            var ctx = document.getElementById('myChart').getContext('2d');
+
+
+            firebase.database().ref("OtherFeedback").once('value', function (snapshot) {
+                var count=snapshot.numChildren();
+                snapshot.forEach(function (childSnapshot) {
+                    console.log("parent key");
+                    console.log(childSnapshot.key);
+                    childSnapshot.forEach(function (innerchild) {
+                        var childKey = innerchild.key;
+                        var childData = innerchild.val();
+                        console.log("child key");
+                        console.log(childKey);
+                        if(childKey=='Canteen'){
+                            ctn+=childData['feedbackval'];
+                        }
+                        else if(childKey=='College'){
+                            clg+=childData['feedbackval'];
+                        }
+                        else if(childKey=='Curricular Activities'){
+                            cur+=childData['feedbackval'];
+                        }
+                        else{
+                            lib+=childData['feedbackval'];
+                        }
+                        console.log("childdata");
+                        console.log(childData);
+                    });
+                });
+                console.log(ctn+" "+clg+" "+cur+" "+lib);
+                fval.push(ctn/count);
+                fval.push(clg/count);
+                fval.push(cur/count);
+                fval.push(lib/count);
+                console.log(flabel);
+                console.log(fval);
+
+
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: flabel,
+                    datasets: [{
+                        label: 'Feedback',
+                        data: fval,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        });
+
+
+
+    </script>
+    </header>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        <title>Faculty Feedback</title>
+        <link rel="stylesheet" type="text/css" href="css/ffstyle.css">
+        <link href="https://fonts.googleapis.com/css?family=Flamenco" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header>
+            <h1 style="width: fit-content;">FACULTY FEEDBACK</h1>
+            <div class="mainDiv" align="left">
+                <div class="subdiv" align="left">
+                <h2 style="width: fit-content;">FACULTY FEEDBACK LIST</h2>
+                <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+            <script>
+
+                var firebaseConfig = {
+                    apiKey: "AIzaSyCtoy51rQGpd00Iys-oZn0QcHpZBqWypzE",
+                    authDomain: "majorproject-1c258.firebaseapp.com",
+                    databaseURL: "https://majorproject-1c258.firebaseio.com",
+                    projectId: "majorproject-1c258",
+                    storageBucket: "majorproject-1c258.appspot.com",
+                    messagingSenderId: "1063858542021",
+                    appId: "1:1063858542021:web:1b927cf5f809598ab827ac",
+                    measurementId: "G-LMRQGTLPX6"
+                };
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+                
+                firebase.database().ref("Feedback").once('value', function (snapshot) {
+                    var count=snapshot.numChildren();
+                    console.log(count);
+                    snapshot.forEach(function (childSnapshot) {
+                        console.log(childSnapshot.key);
+                        childSnapshot.forEach(function (innersnapshot){
+                        $("#tablebody").append("<tr><td class='val'>"+"Mr/Ms."+childSnapshot.key+"</td><td class='secval'>"+innersnapshot.key+"</td><td><button class='cbtn' onclick='myval()'>Check</button></td></tr>");
+                    });
+                });
+                });
+            </script>
+                <!-- <a href="#" class="btn btn-full" onclick="myfunc()">Display</a> -->
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>FACULTY LIST</td>
+                            <td>SUBJECT</td>
+                            <td>ACTION</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tablebody">
+                                              
+                    </tbody>
+                </table>
+            </div>
+            <canvas class="chart" id="myChart" width="20%" height="20%" align="right"></canvas>
+            <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+            <script>
+
+                var firebaseConfig = {
+                    apiKey: "AIzaSyCtoy51rQGpd00Iys-oZn0QcHpZBqWypzE",
+                    authDomain: "majorproject-1c258.firebaseapp.com",
+                    databaseURL: "https://majorproject-1c258.firebaseio.com",
+                    projectId: "majorproject-1c258",
+                    storageBucket: "majorproject-1c258.appspot.com",
+                    messagingSenderId: "1063858542021",
+                    appId: "1:1063858542021:web:1b927cf5f809598ab827ac",
+                    measurementId: "G-LMRQGTLPX6"
+                };
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+            </script>
+            <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+            <script src="getfacultyfeedbacklist.js"></script>
+        </header>
+    </body>
+    </html>        

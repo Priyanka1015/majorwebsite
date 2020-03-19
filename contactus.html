@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        <title>Contact Us</title>
+        <link rel="stylesheet" type="text/css" href="css/contactstyle.css">
+        <link href="https://fonts.googleapis.com/css?family=Flamenco" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+		<header>	
+		<div class="container-contact100">
+			<div class="wrap-contact100">
+				<div class="contact100-form-title" style="background-image: url(images/bg-01.jpg);">
+					<span class="contact100-form-title-1">
+						Contact Us
+					</span>
+	
+					<span class="contact100-form-title-2">
+						Feel free to drop us a line below!
+					</span>
+				</div>
+				<form id="form" class="contact100-form validate-form">
+					<div class="wrap-input100 validate-input" data-validate="Name is required">
+						<span class="label-input100">Full Name:</span>
+						<input class="input100" id="name" type="text" name="name" placeholder="Enter full name">
+						<span class="focus-input100"></span>
+					</div>
+	
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<span class="label-input100">Email:</span>
+						<input class="input100" id="email" type="text" name="email" placeholder="Enter email addess">
+						<span class="focus-input100"></span>
+					</div>
+	
+					<div class="wrap-input100 validate-input" data-validate="Phone is required">
+						<span class="label-input100">Phone:</span>
+						<input class="input100" id="phone" type="text" name="phone" placeholder="Enter phone number">
+						<span class="focus-input100"></span>
+					</div>
+	
+					<div class="wrap-input100 validate-input" data-validate = "Message is required">
+						<span class="label-input100">Message:</span>
+						<textarea class="input100" id="mesg" name="message" placeholder="Your Comment..."></textarea>
+						<span class="focus-input100"></span>
+					</div>
+	
+					<div class="container-contact100-form-btn">
+						<button type="button" class="contact100-form-btn" id="add">
+							<span>
+								Submit
+								<!-- <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i> -->
+							</span>
+						</button>
+					</div>
+				</form>
+		</div>
+		</div>
+		<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+		<script>
+
+			var firebaseConfig = {
+				apiKey: "AIzaSyCtoy51rQGpd00Iys-oZn0QcHpZBqWypzE",
+				authDomain: "majorproject-1c258.firebaseapp.com",
+				databaseURL: "https://majorproject-1c258.firebaseio.com",
+				projectId: "majorproject-1c258",
+				storageBucket: "majorproject-1c258.appspot.com",
+				messagingSenderId: "1063858542021",
+				appId: "1:1063858542021:web:1b927cf5f809598ab827ac",
+				measurementId: "G-LMRQGTLPX6"
+			};
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+
+			
+
+			var btn=document.getElementById("add");
+			var ref=firebase.database().ref("ContactUs");
+			btn.addEventListener('click',function(){
+			var name=document.getElementById("name").value;
+			var email=document.getElementById("email").value;
+			var phone=document.getElementById("phone").value;
+			var mesg=document.getElementById("mesg").value;
+			if(name.length==0 || email.length==0 || phone.length==0 || mesg.length==0){
+				
+			}	
+			else{			
+			ref.child(name).set({
+					'name':name,
+					'email':email,
+					'phone':phone,
+					'mesg':mesg
+				});
+				alert("Thank You for contacting us. We'll get back to you soon!!");
+				// window.location.href="index.html";
+				history.go(-1);
+			}
+			})
+			
+		</script>
+		<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+		<script src="check.js"></script>
+		</header>
+	</body>
+	</html>
