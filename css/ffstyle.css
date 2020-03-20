@@ -10,9 +10,11 @@ body{
     overflow-y: auto;
     font-family: 'Flamenco', cursive;
     background-color: rgba(141, 137, 137, 0.863);
-    background-image: url('../images/facfedback1.jpg');
-    height: auto;
-    width: auto;
+    background-image: url('../images/facfedback.jpg');
+    /* height: 300%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; */
 }
 body::before{
     content: "";
@@ -126,4 +128,7 @@ tr:hover{
         width: 400%;
         height: 400%;
     }
+}
+thead td{
+    background: rgb(24, 24, 97);
 }

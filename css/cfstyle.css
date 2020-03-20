@@ -9,7 +9,7 @@ body{
     overflow-x: auto;
     overflow-y: auto;
     font-family: 'Flamenco', cursive;
-    background-image: url('../images/clgfedback.jpg');
+    background-image: url('../images/sec_back.jpg');
     height: auto;
     width: auto;
 }
@@ -123,4 +123,7 @@ tr:hover{
         width: 550%;
         height: 400%;
 }
+}
+thead td{
+    background: rgb(24, 24, 97);
 }
