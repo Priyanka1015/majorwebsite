@@ -44,6 +44,7 @@ h1{
     text-transform: uppercase;
     margin-bottom: 10px;
     margin-left: 32%;
+    font-weight: lighter;
 }
 h1:hover{
     border-bottom: 2px solid #bf55ec;
@@ -51,9 +52,10 @@ h1:hover{
 
 h2{
     color: white;
-    margin-left: 20px;
+    margin-left: 40%;
     word-spacing: 5px;
     letter-spacing: 2px;
+    font-weight: lighter;
 }
 h2:hover{
     border-bottom: 2px solid #bf55ec;
@@ -80,8 +82,8 @@ h2:hover{
 }
 .table{
     color: white;
-    margin-top: 10px;
-    margin-left: 20px;
+    margin-top: 20px;
+    margin-left: 29%;
     width: 40%;
 }
 table, th, td {

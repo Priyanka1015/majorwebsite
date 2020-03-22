@@ -7,6 +7,7 @@ function myval(){
         var $row=$(this).closest("tr");
         var val=$row.find(".val").text();
         //alert(val);
+        
         fval.length=0;
         flabel.length=0;
         var ctx = document.getElementById('myChart').getContext('2d');

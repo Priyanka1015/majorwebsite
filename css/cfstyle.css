@@ -25,6 +25,7 @@ body::before{
     background-color: rgba(2, 2, 2, 0.863);
 
 }
+
 header{
     background-size: cover;
     background-repeat: no-repeat; 
@@ -39,6 +40,7 @@ h1{
     text-transform: uppercase;
     margin-bottom: 10px;
     margin-left: 32%;
+    font-weight: lighter;
 }
 h1:hover{
     border-bottom: 2px solid #bf55ec;
@@ -46,9 +48,12 @@ h1:hover{
 
 h2{
     color: white;
-    margin-left: 20px;
+    margin-left: 41%;
     word-spacing: 5px;
     letter-spacing: 2px;
+    font-weight: lighter;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 h2:hover{
     border-bottom: 2px solid #bf55ec;
@@ -63,22 +68,24 @@ h2:hover{
     transition: background-color 0.2s, border 0.2s, color 0.2;
     margin-left: 38%;
     margin-top: 10px;
+    margin-bottom: 10px;
 
 }
 .obtn-full{
     background-color: #7f10af;
-    color: white;
+    color: black;
     margin-right: 15px;
     border: 1px solid  #bf55ec;
+    font-weight: bolder;
 }
 
 .obtn-full:hover{
-    background-color: #bf55ec;
+    background-color: white;
 }
 .table{
     color: white;
-    margin-top: 10px;
-    margin-left: 20px;
+    margin-top: 20px;
+    margin-left: 35%;
     width: 30%;
 }
 table, th, td {

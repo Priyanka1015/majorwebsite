@@ -9,9 +9,9 @@ body{
     overflow-x: auto;
     overflow-y: auto;
     font-family: 'Flamenco', cursive;
-    background-image: url('../images/aboutback.webp');
+    background-image: url('../images/aboutback.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
 }
 body::before{
@@ -55,7 +55,7 @@ body::before{
     color: white;
     line-height: 1.2;
     text-align: center;
-    font-weight: bolder;
+    font-weight: lighter;
     position: relative;
 }
 .t2::after{
@@ -91,7 +91,7 @@ body::before{
     background: transparent;
 }
 .links1-fbook{
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     width: 120px;
     height: 120px;
     background-color: white;
@@ -159,7 +159,7 @@ body::before{
 }
 
 .links2-fbook{
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     width: 120px;
     height: 120px;
     background-color: white;
@@ -226,7 +226,7 @@ body::before{
 }
 
 .links3-fbook{
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     width: 120px;
     height: 120px;
     background-color: white;
