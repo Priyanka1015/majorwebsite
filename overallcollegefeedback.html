@@ -43,7 +43,11 @@
 
 
             firebase.database().ref("OtherFeedback").once('value', function (snapshot) {
-                var count=snapshot.numChildren();
+                //var count=snapshot.numChildren();
+                var cclg = 0;
+                var cctn = 0;
+                var ccur = 0;
+                var clib = 0;
                 snapshot.forEach(function (childSnapshot) {
                     console.log("parent key");
                     console.log(childSnapshot.key);
@@ -54,25 +58,29 @@
                         console.log(childKey);
                         if(childKey=='Canteen'){
                             ctn+=childData['feedbackval'];
+                            cctn+=1;
                         }
                         else if(childKey=='College'){
                             clg+=childData['feedbackval'];
+                            cclg+=1;
                         }
                         else if(childKey=='Curricular Activities'){
                             cur+=childData['feedbackval'];
+                            ccur+=1;
                         }
                         else{
                             lib+=childData['feedbackval'];
+                            clib+=1;
                         }
                         console.log("childdata");
                         console.log(childData);
                     });
                 });
                 console.log(ctn+" "+clg+" "+cur+" "+lib);
-                fval.push(ctn/count);
-                fval.push(clg/count);
-                fval.push(cur/count);
-                fval.push(lib/count);
+                fval.push(ctn/cctn);
+                fval.push(clg/cclg);
+                fval.push(cur/ccur);
+                fval.push(lib/clib);
                 console.log(flabel);
                 console.log(fval);
 
